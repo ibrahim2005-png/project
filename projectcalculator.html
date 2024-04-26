@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+  body {
+  background-color:black;
+  }
+  #screen{
+  background:gold;
+  width:100%;
+  position:relative;
+  border-radius:10%;
+  }
+  .back {
+  position:fixed;
+  background:linear-gradient(#33004d,blue,violet);
+  width: 250px;
+  height: 320px;
+  left: calc(50% - 125px);
+  top: calc(50% - 150px);
+  overflow:auto;
+  }
+  .readonly {
+  position: relative;
+  width: 200px;
+  left: calc(50% - 100px);
+  top: 40px;
+  overflow:auto;
+  height: 40px;
+  }
+  .readonly input {
+  position: relative;
+  left: 5px;
+  top: 2px;
+  height: 20px;
+  color: black;
+  background-color: #ffe6f7;
+  font-size: 21px;
+  text-align: justify;
+  }
+  .key {
+  position: relative;
+  top: 30px;
+  }
+  .button {
+  width: 40px;
+  height: 30px;
+  border: 1px solid black ;
+  margin-left: 14px;
+  }
+  .button.one {
+  color:silver;
+  background-color: darkgreen;
+  }
+  .button.two {
+  color: black;
+  background-color: #ffe6ff;
+  }
+  /*HabariNews*/
+    
+    #HabariNews{
+    position:absolute;
+    bottom:0;
+    width:80%;
+    left:10%;
+    border:2px dashed peru;
+    background:black;
+    color:white;
+    display:none;
+    padding:10px;
+    }
+    
+  </style>
+  </head><center><span style="position:fixed; bottom:5%; font-size:1.5em; color:red;" >This is Calculator</span></center>
+  <a href="projecthome.html" >Back Home</a>
+  <h6 style="color:peru;" ><center>HABARI webdesigner Calculator</center></h6>
+<body>
+<div class="back">
+  <div class="readonly">
+    <input type="text" placeholder="Meshak إبراحيم" readonly id="screen">
+  </div>
+  <div class="key">
+
+    <p>
+      <input type="button" class="button one" value="√" onclick="sqrt()">
+
+    
+      <input type="button" class="button one" value="C" onclick='c("")'>
+    </p>
+
+    <p>
+      <input type="button" class="button two" value="7" onclick='v("7")'>
+
+      <input type="button" class="button two" value="8" onclick='v("8")'>
+
+      <input type="button" class="button two" value="9" onclick='v("9")'>
+
+      <input type="button" class="button one" value="+" onclick='v("+")'>
+    </p>
+
+    <p>
+      <input type="button" class="button two" value="4" onclick='v("4")'>
+
+      <input type="button" class="button two" value="5" onclick='v("5")'>
+
+      <input type="button" class="button two" value="6" onclick='v("6")'>
+
+      <input type="button" class="button one" value="-" onclick='v("-")'>
+    </p>
+
+    <p>
+      <input type="button" class="button two" value="1" onclick='v("1")'>
+
+      <input type="button" class="button two" value="2" onclick='v("2")'>
+
+      <input type="button" class="button two" value="3" onclick='v("3")'>
+
+      <input type="button" class="button one" value="*" onclick='v("*")'>
+    </p>
+     <p>
+      <input type="button" class="button two" value="0" onclick='v("0")'>
+
+      <input type="button" class="button one" value="." onclick='v(".")'>
+
+      <input type="button" class="button two" value="=" onclick='e()'>
+
+      <input type="button" class="button one" value="/" onclick='v("/")'>
+    </p>
+  </div>
+</div>
+</body>
+<!--Designer news-->
+<span onclick="document.getElementById('HabariNews').style.display='block'" style="position:fixed; bottom:0; color:blue; font-size:-2em;">Habari webdesign&copy;</span>
+<div id="HabariNews">
+<section>For more information contact us on:<br>
+<dl><dt>Facebook:</dt><dd>  Mechack fiston Ibrahim</dd>
+    <dt>Email:</dt><dd>  habarimeshak2005@gmail.com</dd>
+    <dt>Mobile:</dt><dd> 0793029839</dd>
+</dl>
+</section>
+<button style="position:absolute; color:red; top:0%; right:0%;" onclick="document.getElementById('HabariNews').style.display='none';">&times;</button></div>
+
+<script>
+  function sqrt() {
+      var val = document.getElementById("screen").value;
+      document.getElementById("screen").value = "√(" + val + ")";
+  }
+
+  function c(val) {
+    document.getElementById("screen").value = val;
+  }
+
+  function v(val) {
+    document.getElementById("screen").value += val;
+  }
+
+  function e() {
+    try {
+      var toEval = document.getElementById("screen").value.replace("√", "Math.sqrt");
+      c(eval(toEval))
+    } catch (e) {
+      c('Error')
+    }
+  }
+</script>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<style >
+input {
+width:20px;
+border:none;
+border-bottom:2px solid peru;
+}
+#result {
+color:white;
+background:black;
+padding:5px;
+width:auto;
+height:auto;
+display:none;
+}
+/*HabariNews*/
+  
+  #HabariNews{
+  position:absolute;
+  bottom:0;
+  width:80%;
+  left:10%;
+  border:2px dashed peru;
+  background:black;
+  color:white;
+  display:none;
+  padding:10px;
+  }
+  
+</style>
+</head>
+<body>
+<p><a href="projecthome.html" >Back Home</a></p>
+Simple Addition Quadratic Equation:
+<br>
+<span style="color:red;" >don't Enter Negative Numbers!</span>
+<br>
+
+<tr>
+<td><input type="number" id="a">x²+</td>
+<td><input type="number" id="b">x+</td>
+<td><input type="number" id="c"></td>
+</tr>
+<br>
+<button onclick="i()">Result</button>
+<div id="result">
+<button onclick="document.getElementById('result').style.display='none';">&times;</button>
+<br>
+<span id="root1"></span>
+
+</div>
+<!--Designer news-->
+<span onclick="document.getElementById('HabariNews').style.display='block'" style="position:fixed; bottom:0; color:blue; font-size:-2em;">Habari webdesign&copy;</span>
+<div id="HabariNews">
+<section>For more information contact us on:<br>
+<dl><dt>Facebook:</dt><dd>  Mechack fiston Ibrahim</dd>
+    <dt>Email:</dt><dd>  habarimeshak2005@gmail.com</dd>
+    <dt>Mobile:</dt><dd> 0793029839</dd>
+</dl>
+</section>
+<button style="position:absolute; color:red; top:0%; right:0%;" onclick="document.getElementById('HabariNews').style.display='none';">&times;</button></div>
+<center><span style="position:fixed; bottom:15%; font-size:1.5em; color:red;" >This is Positive quadratic equation</span></center>
+</body>
+<script>
+function i(){
+var a=eval(document.getElementById("a").value);
+var b=eval(document.getElementById("b").value);
+var c=eval(document.getElementById("c").value);
+
+var root=eval(b*b+'-'+4*a*c);
+var sq=Math.sqrt(root);
+var root1=eval(-b+sq)/2*a;
+var root2=eval(eval('-'+b+'-'+sq)/+2*a);
+
+document.getElementById('root1').innerHTML='S={'+root1+','+root2+'}'+';     Equation:'+a+'x²'+'+'+b+'x'+'+'+c+'=0';
+document.getElementById('result').style.display="block";
+}
+
+</script>
+</html>

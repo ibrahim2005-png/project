@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Table</title>
+
+   <style >
+   
+   /*Loading*/
+   
+   /*welcome*/
+   b{
+   color:darkgreen;
+   font-size:2em;
+   margin:0;
+   padding:0;
+   opacity:0;
+   animation:varl 8s;;}
+   b:nth-child(2){animation-delay:0.2s;}
+   b:nth-child(3){animation-delay:0.4s;}
+   b:nth-child(4){animation-delay:0.6s;}
+   b:nth-child(5){animation-delay:0.8s;}
+   b:nth-child(6){animation-delay:1s;}
+   b:nth-child(7){animation-delay:1.2s;}
+   b:nth-child(8){animation-delay:1.4s;}
+   
+   @keyframes varl{
+   0%{opacity:0; color:red; transform-box:rotateX(0deg);}
+   100%{opacity:1; color:darkgreen; transform-box:rotateX(360deg);}
+   }
+   
+   #start{
+       height:100%;
+       width:100%;
+       z-index:1;
+       position:fixed;
+       margin:0;
+       padding:0;
+       background:rgba(0,0,0,0.3);
+       -webkit-animation:start 2s;
+       animation:start 2s;
+         }
+     @-webkit-keyframes start{
+     0%{
+     -webkit-transform:scale(0);
+     }
+     100%{
+     -webkit-transform:scale(1);
+     }
+     }
+     @keyframes start{
+     0%{
+     transform:scale(0);
+     }
+     100%{
+     transform:scale(1);
+     }
+     }
+     
+     /*Out*/
+     table{border:1px solid black;}
+     .tinput{
+     width:20px;
+     margin:0;
+     padding:0;
+     border:none;
+     border-top:1px solid black;
+     border-left:1px solid black;
+     }
+     
+     #out{
+     position:fixed;
+     height:100%;
+     width:100%;
+     overflow:auto;
+     }
+     
+     #saved:hover #savedh{
+        background:black;
+        position:relative;
+        right:-20%;
+        color:blue;
+        bottom:-20%;
+        display:block;
+        }
+     
+     /*HabariNews*/
+     
+     #HabariNews{
+     position:absolute;
+     bottom:0;
+     width:80%;
+     left:10%;
+     border:2px dashed peru;
+     background:black;
+     color:white;
+     display:none;
+     padding:10px;
+     }
+    </style>
+
+</head>
+<body style="margin:0; padding:0;">
+<!--Start-->
+<div id="start">
+<button style="font-size:2em; color:red; position:fixed; top:0%; right:0%;" onclick="document.getElementById('start').style.display='none';">&times;</button>
+<center style="margin-top:10%;">
+
+ <b class="varl" >W</b>
+ <b class="varl" >e</b>
+ <b class="varl" >l</b>
+ <b class="varl" >c</b>
+ <b class="varl" >o</b>
+ <b class="varl" >m</b>
+ <b class="varl" >e</b>
+ <b class="varl" >!</b>
+ <br>
+<span style="color:blue; font-size:2em;" ><code style="color:peru; font-family:cursive;">Habari</code> Webdesign </span>
+<br>
+<span style="color:red;">Mathematics Frequency table</span>
+</center>
+</div>
+
+<!--out-->
+<br>
+<div id="saved" style="background:rgba(0,0,255,0.2); height:30%; width:100%">
+<input style="border:2px solid black;" id="rows" type="number" placeholder="Choose Number of Table rows" ><br><button onclick="save()" style="background:black; color:white; font-weight:bold;">Enter</button>
+<span id="savedh" style="display:none;" >Hello Enter numbers<br> between 2-6 and click Enter</span>
+</div>
+
+<p id="one" style="display:none;" ><a href="project1.html" >click to get Table1</a></p>
+<p id="two" style="display:none;" ><a href="project2.html" >click to get Table2</a></p>
+<p id="three" style="display:none;" ><a href="project3.html" >click to get Table3</a></p>
+<p id="four" style="display:none;" ><a href="project4.html" >click to get Table4</a></p>
+<p id="five" style="display:none;" ><a href="project5.html" >click to get Table5</a></p>
+<p id="six" style="display:none;" ><a href="project6.html" >click to get Table6</a></p>
+<p style="color:peru;" >How many rows does your table you want to have? {range:2-6;}<br><i>Please Enter The Above</i></p>
+<p><a href="projecttasbih" >Click to get Tasbih</a></p>
+<p><a href="projectcalculator.html" >Click to see Calculator</a></p>
+<p><a href="projectevenquadraticequation.html" >Click to see Positive numbers quadratic equation</a></p>
+<!--Designer news-->
+<span onclick="document.getElementById('HabariNews').style.display='block'" style="position:fixed; bottom:0; color:blue; font-size:-2em;">Habari webdesign&copy;</span>
+<div id="HabariNews"><section>For more information contact us on:<br>
+<dl><dt>Facebook:</dt><dd>  Mechack fiston Ibrahim</dd>
+    <dt>Email:</dt><dd>  habarimeshak2005@gmail.com</dd>
+    <dt>Mobile:</dt><dd> 0793029839</dd>
+</dl>
+</section>
+<button style="position:absolute; color:red; top:0%; right:0%;" onclick="document.getElementById('HabariNews').style.display='none';">&times;</button></div>
+</body>
+
+<script>
+
+function save(){
+
+//declaration
+var a=document.getElementById('rows').value;
+var b=2;
+var c=3;
+var d=4;
+var e=5;
+var f=6;
+
+
+//two
+if(a==b){
+document.getElementById('two').style.display="block";
+}
+else{
+document.getElementById('two').style.display="none;"
+}
+
+//three
+if(a==c){
+document.getElementById('three').style.display="block";
+}
+else{
+document.getElementById('three').style.display="none;"
+}
+
+//four
+if(a==d){
+document.getElementById('four').style.display="block";
+}
+else{
+document.getElementById('four').style.display="none;"
+}
+
+//five
+if(a==e){
+document.getElementById('five').style.display="block";
+}
+else{
+document.getElementById('five').style.display="none;"
+}
+
+//six
+if(a==f){
+document.getElementById('six').style.display="block";
+}
+else{
+document.getElementById('six').style.display="none;"
+}
+
+//for above
+
+}
+</script>
+</html>

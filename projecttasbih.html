@@ -1,0 +1,99 @@
+<html lang="en" >
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>File name:'phonetest.html'</title>
+<style type="text/css">
+  
+#center {
+position:fixed;
+top:cal(50% - 200px);
+left:cal(50% - 200px);
+height:200px;
+width:200px;
+background:red;
+border-radius:50%;
+margin-top:calc(50% - 100px);
+margin-left:calc(50% - 100px);
+}
+
+#a{
+margin-left:75px;
+background:none;
+padding-top:0px;
+font-size:1.2em;
+font-weight:bold;
+height:30px;
+border:none;
+}
+
+#p {
+margin-left:10px;
+height:140px;
+width:140px;
+margin-left:30px;
+background:gold;
+border-radius:50%;
+font-size:3em;
+border:none;
+}
+
+#r{
+margin-left:80px;
+background:none;
+padding-bottom:1.5px;
+font-size:1.2em;
+font-weight:bold;
+height:30px;
+border:none;
+}
+
+body{
+margin:0;
+padding:0;
+height:100%;
+width:100%;
+}
+
+#add{
+position:fixed;
+margin-top:0;
+height:50%;
+width:100%;
+background:darkgreen;
+}
+#delate{
+position:fixed;
+bottom:0;
+height:50%;
+width:100%;
+background:darkred;
+}
+</style>
+</head>
+<body>
+<div onclick="a()" id="add"></div>
+<div onclick="r()" id="delate"></div>
+<div id="center">
+<button id="a">+1</button>
+<input  readonly id="p" type="button">
+<button id="r"">-1</button>
+</div>
+</body>
+
+<script>
+function a() {
+
+    var val= document.getElementById('p').value;
+      var toEval = document.getElementById("p").value =eval(val+'+'+1);
+     document.getElementById('p').innerHTML = toEval;
+    }
+ function r(){
+ var val= document.getElementById('p').value;
+ var toEval = document.getElementById("p").value =eval(val+'-'+1);
+ document.getElementById('p').innerHTML = toEval;
+ 
+ }
+
+
+  </script>
+</html>

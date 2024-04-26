@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Table</title>
+
+   <style >
+   
+   /*Loading*/
+   #start{
+       height:100%;
+       width:100%;
+       z-index:1;
+       position:fixed;
+       margin:0;
+       padding:0;
+       background:rgba(0,0,0,0.3);
+       -webkit-animation:start 2s;
+       animation:start 2s;
+         }
+     @-webkit-keyframes start{
+     0%{
+     -webkit-transform:scale(0);
+     }
+     100%{
+     -webkit-transform:scale(1);
+     }
+     }
+     @keyframes start{
+     0%{
+     transform:scale(0);
+     }
+     100%{
+     transform:scale(1);
+     }
+     }
+     
+     /*Out5*/
+     table{border:1px solid black;}
+     .tinput{
+     width:20px;
+     margin:0;
+     padding:0;
+     border:none;
+     border-top:1px solid black;
+     border-right:1px solid black;
+     }
+     
+     #out{
+     position:relative;
+     height:100%;
+     width:100%;
+     overflow:auto;
+     }
+     
+     /*Result of formulas*/
+     
+     #mean,#mode,#median,#range{
+     display:none;
+     background:black;
+     color:white;
+     padding:1px;
+     border:2px solid peru;
+     height:auto;
+     width:auto;
+     }
+     /*HabariNews*/
+     
+     #HabariNews{
+     position:absolute;
+     bottom:0;
+     width:80%;
+     left:10%;
+     border:2px dashed peru;
+     background:black;
+     color:white;
+     display:none;
+     padding:10px;
+     }
+     
+   </style>
+
+</head>
+<body style="margin:0; padding:0;">
+
+<!--Start-->
+<div id="start">
+<button style="font-size:2em; color:red; position:fixed; top:0%; right:0%;" onclick="document.getElementById('start').style.display='none';">&times;</button>
+<center style="margin-top:50%;">
+<span style="color:blue; font-size:2em;" >Welcome! To <code style="color:peru; font-family:cursive;">Habari</code> Webdesign </span>
+<br>
+<span style="color:red;">Mathematics Frequency table</span>
+</center>
+</div>
+
+<a href="projecthome.html" >Back Home</a>
+<!--five row-->
+<div id="first">
+<table >
+<tr>
+<th>data</th>
+<td><input type="number" id="xina" class="tinput"></td>
+<td><input type="number" id="xinb" class="tinput"></td>
+<td><input type="number" id="xinc" class="tinput"></td>
+<td><input type="number" id="xind" class="tinput"></td>
+<td><input type="number" id="xine" class="tinput"></td>
+</tr>
+<tr>
+<th>frequency</th>
+<td><input type="number" id="yina" class="tinput"></td>
+<td><input type="number" id="yinb" class="tinput"></td>
+<td><input type="number" id="yinc" class="tinput"></td>
+<td><input type="number" id="yind" class="tinput"></td>
+<td><input type="number" id="yine" class="tinput"></td>
+</tr>
+</table>
+<button onclick="Get()">Get</button>
+</div>
+<!--Out tables-->
+<div style="display:none;" id="out">
+<span  onclick="document.getElementById('first').style.display='block'; document.getElementById('out').style.display='none'; document.getElementById('Result-of-formulas').style.display='none';" style="font-size:2em;" >🔙</span>
+<table   id="table2" border="1" >
+<tr>
+<th>Data(x)</th>
+<th>Frequency(f)</th>
+<th>fx</th>
+</tr>
+
+<tr>
+<td id="dx1"></td>
+<td id="dy1"></td>
+<td id="fx1"></td>
+</tr>
+
+<tr>
+<td id="dx2"></td>
+<td id="dy2"></td>
+<td id="fx2"></td>
+</tr>
+
+<tr>
+<td id="dx3"></td>
+<td id="dy3"></td>
+<td id="fx3"></td>
+</tr>
+
+<tr>
+<td id="dx4"></td>
+<td id="dy4"></td>
+<td id="fx4"></td>
+</tr>
+
+<tr>
+<td id="dx5"></td>
+<td id="dy5"></td>
+<td id="fx5"></td>
+</tr>
+
+<tr>
+<td style="border:none;" ></td>
+<td id="Ef"></td>
+<td id="Efx"></td>
+</tr>
+
+</table>
+</div>
+<!--Result of formulas-->
+<div style="display:none;" id="Result-of-formulas">
+<p><button onclick="formulas()">Formulas</button>
+<button style="border:1px solid peru; width:auto; display:none; background:rgba(0,0,0,0.1);" id="smean" onclick="mean()">Mean</button>
+<button style="border:1px solid peru; width:auto; display:none; background:rgba(0,0,0,0.1);" id="smode" onclick="mode()">Mode</button>
+<button style="border:1px solid peru; width:auto; display:none; background:rgba(0,0,0,0.1);" id="smedian" onclick="median()">Median</button>
+<button style="border:1px solid peru; width:auto; display:none; background:rgba(0,0,0,0.1);" id="srange" onclick="range()">Range</button>
+</p>
+
+
+<!--mean-->
+<div id="mean">
+Mean:<span id="mean_value"></span>
+</div>
+
+<!--mode-->
+<div id="mode">
+Mode: not yet Calculated!
+</div>
+
+<!--median-->
+<div id="median">
+Median: not yet Calculated!
+</div>
+
+<!--range-->
+<div id="range">
+Range: not yet Calculated!
+</div>
+</div>
+
+<!--Designer news-->
+<span onclick="document.getElementById('HabariNews').style.display='block'" style="position:fixed; bottom:0; color:blue; font-size:-2em;">Habari webdesign&copy;</span>
+<div id="HabariNews">
+<section>For more information contact us on:<br>
+<dl><dt>Facebook:</dt><dd>  Mechack fiston Ibrahim</dd>
+    <dt>Email:</dt><dd>  habarimeshak2005@gmail.com</dd>
+    <dt>Mobile:</dt><dd> 0793029839</dd>
+</dl>
+</section>
+<button style="position:absolute; color:red; top:0%; right:0%;" onclick="document.getElementById('HabariNews').style.display='none';">&times;</button></div>
+<center><span style="position:fixed; bottom:15%; font-size:1.5em; color:red;" >This is Table of Five Rows</span></center>
+</body>
+
+<script>
+function Get(){
+
+
+document.getElementById('Result-of-formulas').style.display='block';
+document.getElementById('first').style.display="none";
+document.getElementById('out').style.display="block";
+
+var xina=document.getElementById('xina').value;
+var xinb=document.getElementById('xinb').value;
+var xinc=document.getElementById('xinc').value;
+var xind=document.getElementById('xind').value;
+var xine=document.getElementById('xine').value;
+
+var yina=document.getElementById('yina').value;
+var yinb=document.getElementById('yinb').value;
+var yinc=document.getElementById('yinc').value;
+var yind=document.getElementById('yind').value;
+var yine=document.getElementById('yine').value;
+
+//calculations var
+var fx1=xina*yina;
+var fx2=xinb*yinb;
+var fx3=xinc*yinc;
+var fx4=xind*yind;
+var fx5=xine*yine;
+
+//mean
+var mean_value=Math.abs(eval(fx1+'+'+fx2+'+'+fx3+'+'+fx4+'+'+fx5)/eval(yina+'+'+yinb+'+'+yinc+'+'+yind+'+'+yine));
+
+
+document.getElementById('mean_value').innerHTML=mean_value;
+
+
+document.getElementById('Ef').innerHTML='Ef:'+eval(yina+'+'+yinb+'+'+yinc+'+'+yind+'+'+yine);
+document.getElementById('Efx').innerHTML='Efx:'+eval(fx1+'+'+fx2+'+'+fx3+'+'+fx4+'+'+fx5);
+document.getElementById('fx1').innerHTML=fx1;
+document.getElementById('fx2').innerHTML=fx2;
+document.getElementById('fx3').innerHTML=fx3;
+document.getElementById('fx4').innerHTML=fx4;
+document.getElementById('fx5').innerHTML=fx5;
+
+//frequency table
+
+document.getElementById('dx1').innerHTML=xina;
+document.getElementById('dx2').innerHTML=xinb;
+document.getElementById('dx3').innerHTML=xinc;
+document.getElementById('dx4').innerHTML=xind;
+document.getElementById('dx5').innerHTML=xine;
+
+document.getElementById('dy1').innerHTML=yina;
+document.getElementById('dy2').innerHTML=yinb;
+document.getElementById('dy3').innerHTML=yinc;
+document.getElementById('dy4').innerHTML=yind;
+document.getElementById('dy5').innerHTML=yine;
+
+}
+
+// Result of formulas
+function formulas(){
+document.getElementById("mean").style.display="none";
+document.getElementById("mode").style.display="none";
+document.getElementById("median").style.display="none";
+document.getElementById("range").style.display="none";
+
+//others
+document.getElementById("smean").style.display="block";
+document.getElementById("smode").style.display="block";
+document.getElementById("smedian").style.display="block";
+document.getElementById("srange").style.display="block";
+
+}
+
+//
+//mean
+function mean(){
+
+
+document.getElementById("mean").style.display="block";
+document.getElementById("mode").style.display="none";
+document.getElementById("median").style.display="none";
+document.getElementById("range").style.display="none";
+
+//others
+document.getElementById("smean").style.display="block";
+document.getElementById("smode").style.display="none";
+document.getElementById("smedian").style.display="none";
+document.getElementById("srange").style.display="none";
+}
+//mode
+function mode(){
+document.getElementById("mean").style.display="none";
+document.getElementById("mode").style.display="block";
+document.getElementById("median").style.display="none";
+document.getElementById("range").style.display="none";
+
+//others
+document.getElementById("smean").style.display="none";
+document.getElementById("smode").style.display="block";
+document.getElementById("smedian").style.display="none";
+document.getElementById("srange").style.display="none";
+}
+//median
+function median(){
+
+document.getElementById("mean").style.display="none";
+document.getElementById("mode").style.display="none";
+document.getElementById("median").style.display="block";
+document.getElementById("range").style.display="none";
+
+//others
+document.getElementById("smean").style.display="none";
+document.getElementById("smode").style.display="none";
+document.getElementById("smedian").style.display="block";
+document.getElementById("srange").style.display="none";
+}
+//range
+function range(){
+document.getElementById("mean").style.display="none";
+document.getElementById("mode").style.display="none";
+document.getElementById("median").style.display="none";
+document.getElementById("range").style.display="block";
+
+//others
+document.getElementById("smean").style.display="none";
+document.getElementById("smode").style.display="none";
+document.getElementById("smedian").style.display="none";
+document.getElementById("srange").style.display="block";
+}
+
+</script>
+
+</html>
