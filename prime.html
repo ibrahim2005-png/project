@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HabariPrime</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" >
+<style type="text/css">
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+body{
+background:silver;
+}
+input {
+border:1px solid red;
+width:80vw;
+margin:10px 10vw;
+height:50px;
+font-size:1.5em;
+color:darkblue;
+font-weight:800;
+font-family:arial;
+background:rgba(255,255,255,0.2);
+}
+
+input[type=button]{
+border-radius:8px;
+background:gray;
+}
+input[type=button]:focus{
+background:blue;
+color:silver;
+}
+hr {
+background:black;
+width:calc(100vw - 8px);
+margin:0;
+height:2.5px;
+}
+p {
+width:100vw;
+overflow:scroll;
+}
+p,label{padding:0 8px;
+}
+h1{
+font-weight:bold;
+color:gold;
+text-shadow:4px 0px 8px black;
+font-size:1.2em;
+}
+div{
+background-image:conic-gradient(from 270deg,peru,skyblue);
+width:calc(100vw - 8px);
+position:absolute;
+top:50%;
+left: 50%;
+padding:2px 0;
+translate:-50% -50%;
+overflow:hidden;
+border-radius:8px;
+border:1px solid black;
+box-shadow:0px 0px 15px 3px black;
+}
+</style>
+</head>
+<body>
+<div>
+<center><h1>Prime Number check</h1></center>
+<hr>
+<label><u>Number:</u></label>
+<input placeholder="Enter Number to Check"  type="number" id="in" >
+<hr>
+<input type="button" onclick="check()" value="CHECK NUMBER" >
+<hr>
+<label><u>Status:</u></label>
+<input readonly="readonly" id="out" >
+<hr>
+<p id="n" ><u>Other:</u></p>
+<small><i>Habari&reg;</i></small>
+<hr>
+</div>
+</body>
+
+<script type="text/javascript">
+//main function to call other ones
+function check(){
+var i=parseInt(document.getElementById('in').value);
+var o=document.getElementById('out');
+
+if(i>1 && i<50000){
+
+document.getElementById('n').innerHTML=
+'<u>Other:</u><br>prime numbers from <u>1</u> to <u>'
++i+'</u> are... <br>('+prime2(i).length+' Numbers)<br><font size="6px" color="darkgreen">'
++prime2(i)+'.</font>';
+
+o.value=prime(i);
+o.style.color="darkblue";
+o.style.fontSize='1.5em';
+}
+
+else if(i>=50000){
+o.value="Too Large!!, Please Enter Number less than 50000!";
+o.style.color="red";
+o.style.fontSize='0.8em';
+}
+else{
+o.value="Please Enter Number greater than 1!";
+o.style.color="red";
+o.style.fontSize='0.8em';
+}
+
+}
+
+
+//function to get prime numbers up to given number
+function prime2(number){
+
+var arr=[1];
+
+for(var t=2;t<=number;t++){
+for(var u=2;u<=t;u++){
+if(t==u){
+arr[arr.length]=t;
+break;
+        }
+else if(t%u == 0){
+break;
+                }
+
+                    }
+
+                         }
+     return arr;
+
+}
+
+
+
+//function to check given number if is prime
+function prime(ii){
+var n;
+
+var out='Number is prime';
+
+for(n=2;n<ii;n++){
+if((ii%n == 0)){
+out ='Number is not prime';
+break;
+}
+}
+return out;
+}
+</script>
+</html>
